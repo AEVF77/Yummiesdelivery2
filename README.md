@@ -9,16 +9,19 @@ Una aplicación de entrega de alimentos desarrollada en React Native y Expo. La 
    - Sign In
    - Sign Up
 
+
 2. **Choose From Menu** - Opciones para explorar:
    - Home
    - Menu
    - Favorites
+
 
 3. **Confirm Order** - Pantalla "Your Order" para revisar y confirmar el pedido.
 
 4. **Checkout** - Proceso de pago, incluyendo:
    - Deliver to
    - Order Summary
+
 
 5. **Receive Order** - Pantalla de pago final ("Payment").
 

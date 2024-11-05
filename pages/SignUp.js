@@ -1,6 +1,6 @@
 // pages/SignUp.js
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons';
 import img from '../assets/SignUp.png';
 
 export default function SignUp({ navigation }) {
@@ -32,17 +32,17 @@ export default function SignUp({ navigation }) {
       </View>
 
       {/* Botón de Crear Cuenta */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.buttonText}>Create Account</Text>
       </TouchableOpacity>
 
       {/* Texto "OR" y sección de redes sociales */}
-      <View style={{flexDirection: 'row', alignItems: 'center', padding: 20, marginTop: 20}}>
-        <View style={{flex: 1, height: 1, backgroundColor: '#B5B5B5'}} />
-          <View>
-            <Text style={{width: 50, textAlign: 'center'}}>OR</Text>
-          </View>
-        <View style={{flex: 1, height: 1, backgroundColor: '#B5B5B5'}} />
+      <View style={{ flexDirection: 'row', alignItems: 'center', padding: 20, marginTop: 20 }}>
+        <View style={{ flex: 1, height: 1, backgroundColor: '#B5B5B5' }} />
+        <View>
+          <Text style={{ width: 50, textAlign: 'center' }}>OR</Text>
+        </View>
+        <View style={{ flex: 1, height: 1, backgroundColor: '#B5B5B5' }} />
       </View>
       <View style={styles.socialContainer}>
         <Text>Sign up using:</Text>

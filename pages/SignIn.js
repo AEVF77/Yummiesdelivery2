@@ -33,17 +33,17 @@ export default function SignIn({ navigation }) {
       </TouchableOpacity>
 
       {/* Botón de Login */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
 
       {/* Texto "OR" y sección de redes sociales */}
-      <View style={{flexDirection: 'row', alignItems: 'center', padding: 20, marginTop: 20}}>
-        <View style={{flex: 1, height: 1, backgroundColor: '#B5B5B5'}} />
-          <View>
-            <Text style={{width: 50, textAlign: 'center'}}>OR</Text>
-          </View>
-        <View style={{flex: 1, height: 1, backgroundColor: '#B5B5B5'}} />
+      <View style={{ flexDirection: 'row', alignItems: 'center', padding: 20, marginTop: 20 }}>
+        <View style={{ flex: 1, height: 1, backgroundColor: '#B5B5B5' }} />
+        <View>
+          <Text style={{ width: 50, textAlign: 'center' }}>OR</Text>
+        </View>
+        <View style={{ flex: 1, height: 1, backgroundColor: '#B5B5B5' }} />
       </View>
       <View style={styles.socialContainer}>
         <Text>Sign in using:</Text>

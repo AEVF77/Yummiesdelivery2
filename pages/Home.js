@@ -1,13 +1,10 @@
-// pages/home.js
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View, Text, TextInput, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import Entypo from '@expo/vector-icons/Entypo';
 
 export default function Home() {
-  const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets()
 
   return (
     <View style={{ ...styles.container, paddingTop: insets.top, paddingBottom: insets.bottom }}>
@@ -43,7 +40,19 @@ export default function Home() {
         <TouchableOpacity style={styles.categoryButton}>
           <Text style={styles.categoryText}>Drinks</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryButton}>
+          <Text style={styles.categoryText}>Desserts</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryButton}>
+          <Text style={styles.categoryText}>Salad</Text>
+        </TouchableOpacity>
       </ScrollView>
+
+
+
+      <View style={styles.popularNow}>
+        <Text style={styles.sectionTitle}>Today's Special Offer</Text>
+      </View>
 
       {/* Special Offer */}
       <View style={styles.specialOfferView}>
@@ -51,7 +60,9 @@ export default function Home() {
           <Image style={styles.offerImage} source={{ uri: 'https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/pass/the-ultimate-hamburger.jpg' }} />
           <View style={styles.offerDetails}>
             <Text style={styles.offerTitle}>Yummies Special Burger</Text>
-            <Text style={styles.offerPrice}>N1,800 <Text style={styles.discount}>(10% off)</Text></Text>
+            <Text style={styles.offerTime}>Now</Text>
+            <Text style={styles.offerPrice}>N1,800</Text>
+            <Text style={styles.discount}>(10% off)</Text>
             <TouchableOpacity style={styles.addToCartButton}>
               <Text style={styles.addToCartText}>Add to Cart</Text>
             </TouchableOpacity>
@@ -71,15 +82,21 @@ export default function Home() {
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.popularItems}>
         <TouchableOpacity style={styles.item}>
           <Image style={styles.itemImage} source={{ uri: 'https://www.themealdb.com/images/media/meals/wurrux1468416624.jpg' }} />
-          <Text style={styles.itemName}>Beef Salad</Text>
+          <Text style={styles.itemName}>Cream Cheese Tart</Text>
           <Text style={styles.itemPrice}>N1,200</Text>
           <FontAwesome style={styles.heartIcon} name="heart-o" size={22} color="orange" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.item}>
           <Image style={styles.itemImage} source={{ uri: 'https://www.themealdb.com/images/media/meals/wrpwuu1511786491.jpg' }} />
-          <Text style={styles.itemName}>Spicy Noodles</Text>
+          <Text style={styles.itemName}>Ratatouille</Text>
           <Text style={styles.itemPrice}>N1,500</Text>
           <FontAwesome style={styles.heartIcon} name="heart" size={22} color="orange" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.item}>
+          <Image style={styles.itemImage} source={{ uri: 'https://www.themealdb.com/images/media/meals/q8sp3j1593349686.jpg' }} />
+          <Text style={styles.itemName}>Gołąbki (cabbage roll)</Text>
+          <Text style={styles.itemPrice}>N600</Text>
+          <FontAwesome style={styles.heartIcon} name="heart-o" size={22} color="orange" />
         </TouchableOpacity>
       </ScrollView>
 
@@ -155,25 +172,23 @@ const styles = StyleSheet.create({
     shadowColor: '#171717',
     marginBottom: 16
   },
-  specialOffer: { flexDirection: 'row', borderRadius: 30, backgroundColor: 'white' },
+  specialOffer: { flexDirection: 'row', borderRadius: 30, backgroundColor: 'white', },
   offerImage: { width: '50%', height: 170, borderTopLeftRadius: 30, borderBottomLeftRadius: 30 },
-  offerDetails: { flex: 1, padding: 16, justifyContent: 'center' },
-  offerTitle: { fontSize: 16, fontWeight: 'bold', color: '#333' },
-  offerPrice: { fontSize: 18, fontWeight: 'bold', color: '#333' },
+  offerDetails: { flex: 1, width: '50%', alignItems: 'center', position: 'relative' },
+  offerTitle: { fontSize: 14, fontWeight: 'bold', color: '#333', paddingTop: 8 },
+  offerTime: { fontSize: 12, fontWeight: 'bold', color: '#333', marginTop: 10 },
+  offerPrice: { fontSize: 20, fontWeight: 'bold', color: '#333' },
   discount: { color: '#FF5722', fontSize: 12, fontWeight: 'bold' },
-  addToCartButton: { marginTop: 8, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 8, backgroundColor: '#FF5722' },
-  addToCartText: { color: '#fff', textAlign: 'center', fontWeight: 'bold' },
+  addToCartButton: { marginTop: 8, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 8, position: 'absolute', bottom: 14, borderColor: '#FF5722', borderWidth: 2 },
+  addToCartText: { color: '#FF5722', textAlign: 'center', fontWeight: 'bold' },
   popularNow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
   sectionTitle: { fontSize: 18, fontWeight: 'bold' },
   fullMenu: { color: '#FF5722' },
   popularItems: { flexDirection: 'row' },
-  item: { elevation: 3, marginRight: 8, marginLeft: 8, width: 180, height: 180, alignItems: 'center', justifyContent: 'center', borderRadius: 12, overflow: 'hidden', shadowColor: '#171717' },
-  itemImage: { width: '100%', height: '100%' },
-  itemName: { position: 'absolute', color: 'white', fontWeight: 'bold', bottom: 35, left: 15 },
-  itemPrice: { position: 'absolute', color: 'white', fontWeight: 'bold', bottom: 15, left: 15 },
-  heartIcon: { position: 'absolute', bottom: 15, right: 15 },
-  bottomNav: { flexDirection: 'row', height: 60, borderTopColor: '#ddd', borderTopWidth: 1, alignItems: 'center', justifyContent: 'space-around', paddingBottom: 10 },
-  navItem: { alignItems: 'center', justifyContent: 'center' },
-  navText: { color: '#333', fontSize: 12, marginTop: 4 },
-  activeNavText: { color: '#FF5722' },
+  item: { elevation: 3, marginRight: 8, marginLeft: 8, width: 180, height: 180, alignItems: 'center', justifyContent: 'center', borderRadius: 10, backgroundColor: 'white', position: 'relative' },
+  itemImage: { width: 100, resizeMode: 'contain', height: 100, borderRadius: 8, marginBottom: 8 },
+  itemName: { fontSize: 16, color: '#333' },
+  itemPrice: { fontWeight: 'bold', fontSize: 16 },
+  heartIcon: { position: 'absolute', top: 7, right: 7 },
+  bottomNav: { flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 16 }
 });
